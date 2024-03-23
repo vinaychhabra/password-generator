@@ -6,7 +6,23 @@ function App() {
   const [allowedChar, setAllowedChar] = useState(false)
   const [password, setPassword] = useState('')  
 
-  
+  const passwordGenerator = useCallback(() => {
+    let pass = ""
+    let str  = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    if (allowedNumber) str += "0123456789"
+    if (allowedChar) str += "!@#$%^&*~"
+    
+    for (let i = 1; i <= length; i++ ){
+      let char = Math.floor(Math.random() * str.length + 1)
+      pass += str.charAt(char)
+    }
+    setPassword(pass)
+  },[length, allowedChar, allowedNumber, setPassword])
+
+
+  useEffect(()=>{
+    passwordGenerator()
+  },[allowedChar,allowedNumber,length,passwordGenerator])
   return (
     <>
     <h1 className="text-orange-500 mx-auto text-center text-3xl my-4 shadow-md">Password Generator</h1>
@@ -18,7 +34,7 @@ function App() {
            className="outline-none w-full px-1 py-3"
            placeholder='Password'
            readOnly
-           />
+           />  
         </div>
         <div className="flex text-sm gap-x-2">
           <div className="flex items-center gap-x-1">
@@ -45,7 +61,6 @@ function App() {
             <label htmlFor="charInput">Spl. Characters</label>
           </div>
         </div>
-       
      
       </div>
       <div className="w-full fixed bottom-4 text-center mx-auto text-white"><p className="text-center">Designed and Developed by Vinay Chhabra</p></div>  
