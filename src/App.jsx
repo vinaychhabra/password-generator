@@ -1,13 +1,15 @@
-import { useState} from "react"
+import { useCallback, useEffect, useState, useRef } from "react"
 
 function App() {
   const [length, setLength] = useState(8)
   const [allowedNumber, setAllowedNumber] = useState(false)
   const [allowedChar, setAllowedChar] = useState(false)
   const [password, setPassword] = useState('')  
+
+  
   return (
     <>
-      <h1 className="text-orange-500 mx-auto text-center text-3xl my-4 shadow-md">Password Generator</h1>
+    <h1 className="text-orange-500 mx-auto text-center text-3xl my-4 shadow-md">Password Generator</h1>
       <div className="w-full max-w-xl mx-auto shadow-md rounded-lg px-4 my-8 text-orange-500 bg-gray-700 py-4">
         
         <div className="flex shadow rounded-lg overflow-hidden mb-4">
@@ -18,6 +20,17 @@ function App() {
            readOnly
            />
         </div>
+        <div className="flex text-sm gap-x-2">
+          <div className="flex items-center gap-x-1">
+            <input type="range" min={6} max={40} value = {length}
+            className="cursor-pointer"
+            onChange={(e)=> {setLength(e.target.value)}}
+            />
+            <label>Length: {length}</label>
+          </div>
+          </div>
+       
+     
       </div>
       <div className="w-full fixed bottom-4 text-center mx-auto text-white"><p className="text-center">Designed and Developed by Vinay Chhabra</p></div>  
     </>
