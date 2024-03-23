@@ -28,7 +28,23 @@ function App() {
             />
             <label>Length: {length}</label>
           </div>
+          <div className="flex items-center gap-x-1">
+          <input type="checkbox"  
+            defaultChecked={allowedNumber}
+            id="numberInput"
+            onChange={()=> {setAllowedNumber((prev => !prev))}}
+            />
+            <label htmlFor="numberInput">Number</label>
           </div>
+          <div className="flex items-center gap-x-1">
+          <input type="checkbox"  
+            defaultChecked={allowedChar}
+            id="charInput"
+            onChange={()=> {setAllowedChar((prev => !prev))}}
+            />
+            <label htmlFor="charInput">Spl. Characters</label>
+          </div>
+        </div>
        
      
       </div>
