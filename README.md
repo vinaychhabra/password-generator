@@ -1,6 +1,6 @@
 # Password Generator React App
 
-[demo] (https://password-generator-eta-hazel.vercel.app/)
+[live] (https://password-generator-eta-hazel.vercel.app/)
 
 This is a simple password generator React application built with Vite, React, and Tailwind CSS. It allows you to generate random passwords with customizable length and character sets.
 
